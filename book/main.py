@@ -14,12 +14,15 @@ users = pymongo.collection.Collection(db, 'Users')
 
 @app.route('/')
 def root():
-	return render_template('root.html')
+	if not 'user_email' in session:
+		return render_template('root.html')
+	else:
+		return render_template('welcome.html', info = session['user_email'])
 
 @app.route('/function')
 def function():
 	if 'user_email' in session:
-		return render_template('welcome.html')
+		return render_template('welcome.html', info = session['user_email'])
 	return redirect(url_for('root'))
 
 #regist book
@@ -39,7 +42,7 @@ def book():
 			results = books.find()
 			#client.close()
 	
-			return render_template('book.html', results = results)
+			return render_template('welcome.html', results = results, info = session['user_email'])
 		else:
 			#find data from mongoDB
 			results = books.find()
