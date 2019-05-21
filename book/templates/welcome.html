@@ -1,0 +1,17 @@
+<html>
+<head>
+</head>
+<body>
+{% extends "root.html" %} 
+{% block content%}
+	<h1>환영합니다. {{info}}!</h1>
+<form action="/register">
+        <input type="submit" value="책 등록"/>
+</form>
+
+<form action="/book">
+        <input type="submit" value="책 목록"/>
+</form>
+{% endblock content%}
+</body>
+</html>

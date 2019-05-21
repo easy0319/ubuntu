@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>도서관 정보</title>
+        </head>
+
+        <body>
+	{% extends "root.html" %} 
+{% block content%}
+                <form method="POST" action="/function">
+                        <h1>도서 정보 입력</h1>
+                        <p/>
+                        <input name="name" type="text" placeholder="책이름"/>
+                        <input name="price" type="text" placeholder="책가격"/>
+                        <input name="auth" type="text" placeholder="글쓴이"/>
+                        <input name="publisher" type="text" placeholder="출판사"/>
+                        <input type="submit" value="등록"/>
+                </form>
+	{% endblock content%}
+        </body>
+</html>

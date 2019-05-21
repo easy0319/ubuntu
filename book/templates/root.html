@@ -1,0 +1,15 @@
+<html>
+<head>
+</head>
+<body>
+	{% block content%}
+	<h1>메인 페이지</h1>
+	<form action="/signin">
+		<input type="submit" value="로그인"/>
+	</form>
+	<form action="/signup">
+		<input type="submit" value="회원가입"/>
+	</form>
+	{% endblock content %}
+</body>
+</html>

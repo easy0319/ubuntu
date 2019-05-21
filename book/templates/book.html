@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> book list </title>
+</head>
+<body>
+{% extends "root.html" %} 
+{% block content%}
+	<h1>도서 목록</h1>               
+       	<div>
+		<a href="/function"><input type="submit" value="뒤로가기"/></a>
+		<p>-------------------------------</p>  
+	{% for i in results %}
+		<p>책이름 : {{i.name}}</p>
+		<p>책가격 : {{i.price}}</p>
+		<p>저자 : {{i.auth}}</p>
+		<p>출판사 : {{i.publisher}}</p>
+		<p>-------------------------------</p>
+	{% endfor %}
+	</div>
+{% endblock content %}
+</body>
+</html>
