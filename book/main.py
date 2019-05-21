@@ -12,6 +12,7 @@ db = pymongo.database.Database(client, 'mongoDB')
 books = pymongo.collection.Collection(db, 'Books')
 users = pymongo.collection.Collection(db, 'Users')
 
+
 @app.route('/')
 def root():
 	if not 'user_email' in session:
