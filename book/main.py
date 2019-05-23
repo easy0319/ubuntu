@@ -1,12 +1,16 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 from datetime import timedelta
 import pymongo 
+import json
+
+with open("mymongo.json") as Json:
+	user_doc = json.loads(Json.read())
 
 app = Flask(__name__)
 app.secret_key = 'key'
 
 #connect mongoDB
-mongoURL = 'mongodb+srv://easy:easy0319@mongodb-owlwh.mongodb.net/test?retryWrites=true'
+mongoURL = 'mongodb+srv://'+user_doc["MongoID"]+':'+user_doc["MongoPassword"]+user_doc["MongoURL"]
 client = pymongo.MongoClient(mongoURL)
 db = pymongo.database.Database(client, 'mongoDB')
 books = pymongo.collection.Collection(db, 'Books')
